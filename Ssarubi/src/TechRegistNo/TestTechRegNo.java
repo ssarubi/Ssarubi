@@ -19,11 +19,14 @@ public class TestTechRegNo {
 
 	public static void main(String[] args)
 	{
-		String TechRegNo = "11475028";
-		String Name = "박정우";
+//		String TechRegNo = "11475028";
+//		String Name = "박정우";
 		
-//		String TechRegNo = "11411085";
-//		String Name = "최성환";
+//		String TechRegNo = "11554893";
+//		String Name = "박수범";		
+		
+		String TechRegNo = "11565830";
+		String Name = "박보아";
 		
 		try
 		{
@@ -72,6 +75,8 @@ public class TestTechRegNo {
 	        Document doc = docBuilder.parse(new InputSource(new StringReader(strXML)));
 
 	        NodeList nodeList = doc.getDocumentElement().getElementsByTagName("인력기본정보");
+	        
+	        System.out.println((strXML.replace("</인력기본정보\n></인력정보>", "</인력기본정보>\n</인력정보>")).toString());
 
 	        for(int i=0; i < nodeList.getLength(); i++){//화면에 보여주기 위해 맵에 담는다.
 	        	Node row = nodeList.item(i);
@@ -80,7 +85,8 @@ public class TestTechRegNo {
 	        	for(int a=0; a<childList.getLength(); a++){
 	        		Node node = childList.item(a);
 	        		
-	        		System.out.println(node.getNodeName() + ":" + node.getTextContent());
+	        		System.out.println(node.getNodeName() + " : " + node.getTextContent());
+	        		System.out.println("----------------------------------------------------------------------");
 	        		//map.put(node.getNodeName(), node.getTextContent());
 	        	}
 	        }
